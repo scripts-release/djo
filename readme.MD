@@ -1,0 +1,1 @@
+wget https://raw.githubusercontent.com/scripts-release/djo/main/debian_12.sh && chmod +x debian_12.sh && ./debian_12.sh
