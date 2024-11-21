@@ -1288,28 +1288,15 @@ EOF
 install_v2ray(){
 echo "Installing V2RAY"
 cp /root/sub_domain.txt /root/domain
-systemctl stop apache2.service 
-wget -q https://raw.githubusercontent.com/NevermoreSSH/Blueblue/main/ins-xray.sh && chmod +x ins-xray.sh && ./ins-xray.sh
-#wget -q https://raw.githubusercontent.com/NevermoreSSH/Blueblue/main/set-br.sh && chmod +x set-br.sh && ./set-br.sh
+wget -q https://raw.githubusercontent.com/scripts-release/vpn-server/main/install-v2ray.sh && chmod +x install-v2ray.sh && ./install-v2ray.sh
 wget -q -O /usr/bin/add-vless "https://raw.githubusercontent.com/scripts-release/vpn-server/main/add-vless"
 wget -q -O /usr/bin/add-vless2 "https://raw.githubusercontent.com/scripts-release/vpn-server/main/add-vless2"
 wget -q -O /usr/bin/del-vless "https://raw.githubusercontent.com/scripts-release/vpn-server/main/del-vless"
-rm -rf /etc/nginx/conf.d/xray.conf
-rm -rf /etc/nginx/conf.d/vps.conf
-rm -rf /etc/nginx/conf.d/v2ray.conf
-rm -rf /etc/xray/config.json
-wget -q -O /etc/nginx/conf.d/xray.conf "https://raw.githubusercontent.com/scripts-release/vpn-server/main/xray.conf"
-wget -q -O /etc/xray/config.json "https://raw.githubusercontent.com/scripts-release/vpn-server/main/xrayconfig.json"
 
-sudo chown -R www-data:www-data /var/log/xray
-
-systemctl restart xray.service 
-systemctl restart nginx.service
 chmod +x /usr/bin/add-vless
 chmod +x /usr/bin/add-vless2
 chmod +x /usr/bin/del-vless 
 }
-
 
 installation_end_message(){
 cd ~ 
